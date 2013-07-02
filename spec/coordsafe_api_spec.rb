@@ -3,7 +3,7 @@ require 'coordsafe_api'
 describe CoordsafeApi::V1::Locator do
   describe "configuration" do
     it "should return an api key" do
-      CoordsafeApi.key.should be_nil
+      CoordsafeApi.secret.should be_nil
     end
 
     it "should return a company name" do
