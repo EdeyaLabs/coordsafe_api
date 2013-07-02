@@ -23,9 +23,9 @@ module CoordsafeApi
     end
 
     def reset
-      self.endpoint   = DEFAULT_ENDPOINT
-      self.method     = DEFAULT_METHOD
-      self.user_agent = DEFAULT_USER_AGENT
+      self.endpoint     = DEFAULT_ENDPOINT
+      self.method       = DEFAULT_METHOD
+      self.user_agent   = DEFAULT_USER_AGENT
 
       self.secret       = DEFAULT_KEY
       self.company_name = DEFAULT_COMPANY_NAME
