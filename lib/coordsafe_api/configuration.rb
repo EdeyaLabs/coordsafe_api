@@ -4,7 +4,7 @@ module CoordsafeApi
     VALID_OPTIONS_KEYS    = [:secret, :company_name, :format].freeze
     VALID_CONFIG_KEYS     = VALID_CONNECTION_KEYS + VALID_OPTIONS_KEYS
 
-    DEFAULT_ENDPOINT     = "http://www.coordsafe.com.sg/CoordSafePortalApp/locators/lc/company/"
+    DEFAULT_ENDPOINT     = "http://www.coordsafe.com.sg/CoordSafePortalApp/locators/lc/company"
     DEFAULT_METHOD       = :get
     DEFAULT_USER_AGENT   = "CoordsafeApi Ruby Gem #{CoordsafeApi::VERSION}".freeze
 
