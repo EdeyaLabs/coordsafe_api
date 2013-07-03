@@ -1,3 +1,6 @@
+require 'coveralls'
+Coveralls.wear!
+
 require 'coordsafe_api'
 
 describe CoordsafeApi::V1::Locator do
