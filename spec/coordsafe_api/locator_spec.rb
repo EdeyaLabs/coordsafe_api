@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CoordsafeApi::V1::Locator do
+describe CoordsafeApi::Locator do
   before do
     @keys = CoordsafeApi::Configuration::VALID_CONFIG_KEYS
   end
@@ -19,7 +19,7 @@ describe CoordsafeApi::V1::Locator do
     end
 
     it "should inherit module configuration" do
-      api = CoordsafeApi::V1::Locator.new
+      api = CoordsafeApi::Locator.new
       @keys.each do |key|
         api.send(key).should eq(key)
       end
@@ -38,14 +38,14 @@ describe CoordsafeApi::V1::Locator do
       end
 
       it "should ovverride module configuration" do
-        api = CoordsafeApi::V1::Locator.new(@config)
+        api = CoordsafeApi::Locator.new(@config)
         @keys.each do |key|
           api.send(key).should eq @config[key]
         end
       end
 
       it "should override module configuration after" do
-        api = CoordsafeApi::V1::Locator.new
+        api = CoordsafeApi::Locator.new
 
         @config.each do |key, value|
           api.send("#{key}=", value)
