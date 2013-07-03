@@ -1,4 +1,4 @@
-require 'coordsafe_api'
+require 'spec_helper'
 
 describe CoordsafeApi::V1::Locator do
   describe "configuration" do
