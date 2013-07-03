@@ -31,5 +31,9 @@ module CoordsafeApi
       self.company_name = DEFAULT_COMPANY_NAME
       self.format       = DEFAULT_FORMAT
     end
+
+    def options
+      Hash[ * VALID_CONFIG_KEYS.map { |key| [key, send(key)] }.flatten ]
+    end
   end
 end
