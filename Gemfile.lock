@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     coordsafe_api (0.0.1)
+      httparty
 
 GEM
   remote: https://rubygems.org/
@@ -44,6 +45,5 @@ DEPENDENCIES
   bundler (~> 1.3)
   coordsafe_api!
   coveralls
-  httparty
   rake
   rspec (~> 2.6)
