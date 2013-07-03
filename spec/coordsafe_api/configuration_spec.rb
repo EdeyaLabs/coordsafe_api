@@ -1,4 +1,4 @@
-require 'coordsafe_api'
+require 'spec_helper'
 
 describe CoordsafeApi::Configuration do
   describe "when setting the configuration" do
