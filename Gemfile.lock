@@ -3,6 +3,7 @@ PATH
   specs:
     coordsafe_api (0.0.1)
       httparty
+      yajl-ruby
 
 GEM
   remote: https://rubygems.org/
@@ -37,6 +38,7 @@ GEM
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
     thor (0.18.1)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
