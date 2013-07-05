@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe CoordsafeApi::Locator do
   context "on utilizing the API" do
-    xit "should respond with JSON on #locate" do
+    it "should respond with JSON on #locate" do
       api = CoordsafeApi::Locator.new({:company_name => "Sypher Labs Pte. Ltd.", :key => "test-1234qwer"})
-      response = api.locate("test")
-      response.class.should eq("String")
+      request = api.locate
+      request.response.class.should eq(Net::HTTPOK)
     end
   end
 

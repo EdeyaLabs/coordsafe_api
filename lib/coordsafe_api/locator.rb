@@ -12,9 +12,7 @@ module CoordsafeApi
       end
     end
 
-    # Receives an IMEI string or an array of IMEIs
-    # Returns an array of results on JSON
-    def locate(arg)
+    def locate
       response = self.class.get("#{endpoint}/#{URI.escape(company_name)}?key=#{secret}")
     end
 
