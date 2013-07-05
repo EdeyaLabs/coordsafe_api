@@ -37,12 +37,14 @@ describe CoordsafeApi::Locator do
       describe "with class configuration" do
         before do
           @config = {
-            :secret       => "qwerty",
-            :company_name => "qwerty",
-            :format       => "test",
-            :endpoint     => "test",
-            :user_agent   => "qwerty",
-            :method       => "test",
+            :secret                  => "qwerty",
+            :company_name            => "qwerty",
+            :format                  => "test",
+            :locator_endpoint        => "test",
+            :history_endpoint        => "test",
+            :single_history_endpoint => "test",
+            :user_agent              => "qwerty",
+            :method                  => "test",
           }
         end
 

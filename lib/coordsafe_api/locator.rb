@@ -12,9 +12,15 @@ module CoordsafeApi
       end
     end
 
-    def locate
-      response = self.class.get("#{endpoint}/#{URI.escape(company_name)}?key=#{secret}")
+    # Options
+    # locator_id
+    # date_from
+    # date_to
+    # date
+    def locate(options = {})
+      if options.empty?
+        response = self.class.get("#{locator_endpoint}/#{URI.escape(company_name)}?key=#{secret}")
+      end
     end
-
   end
 end
