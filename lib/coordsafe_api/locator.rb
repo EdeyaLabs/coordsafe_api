@@ -14,6 +14,7 @@ module CoordsafeApi
 
     def locate
       response = self.class.get("#{locator_endpoint}/#{URI.escape(company_name)}?key=#{secret}")
+      Response.new(response)
     end
 
     # opts: locator_id, date_from, date_to
