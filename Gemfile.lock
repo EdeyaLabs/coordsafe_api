@@ -1,12 +1,12 @@
 PATH
   remote: .
   specs:
-    coordsafe_api (0.0.1)
+    coordsafe_api (0.1.0)
       httparty
       yajl-ruby
 
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     addressable (2.3.5)
     colorize (0.5.8)
