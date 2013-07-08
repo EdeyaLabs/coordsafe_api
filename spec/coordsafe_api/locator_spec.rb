@@ -22,20 +22,60 @@ describe CoordsafeApi::Locator do
         :content_type => 'application/json')
     end
 
-    it "should respond with 200 (OK) on #locate" do
+    it "should respond with the CoordsafeApi::Response object on #locate" do
       request = @api.locate
       request.class.should eq(CoordsafeApi::Response)
     end
 
-    it "should respond with 200 (OK) on #locate_history with date_from" do
-      request = @api.locate_history(18, DateTime.parse("2013-01-27 09:30"))
-      request.response.class.should eq(Net::HTTPOK)
+    it "should respond with an Array of JSON on #locate" do
+      request = @api.locate
+      results = request.body
+      results.class.should eq(Array)
+      results.each do |r|
+        r.class.should eq(Hash)
+      end
     end
 
-    it "should respond with 200 (OK) on #locate_history with date_from and date_to" do
-      request = @api.locate_history(18, DateTime.parse("2013-01-27 09:00"), DateTime.parse("2013-01-27 10:00"))
-      request.response.class.should eq(Net::HTTPOK)
+    it "should return true for success" do
+      request = @api.locate
+      request.success.should be_true
     end
+
+    it "should respond with the CoordsafeApi::Response object on #locate_history with date_from" do
+      request = @api.locate_history(18, DateTime.parse("2013-01-27 09:30"))
+      request.class.should eq(CoordsafeApi::Response)
+    end
+
+    it "should respond with JSON on #locate_history with date_from" do
+      request = @api.locate_history(18, DateTime.parse("2013-01-27 09:30"))
+      results = request.body
+      results.class.should eq(Array)
+      results.each do |r|
+        r.class.should eq(Hash)
+      end
+    end
+
+    it "should return true for success" do
+      request = @api.locate_history(18, DateTime.parse("2013-01-27 09:30"))
+      request.success.should be_true
+    end
+
+    it "should respond with the CoordsafeApi::Response object on #locate_history with date_from and date_to" do
+      request = @api.locate_history(18, DateTime.parse("2013-01-27 09:00"), DateTime.parse("2013-01-27 10:00"))
+      request.class.should eq(CoordsafeApi::Response)
+    end
+
+    it "should respond with JSON on #locate_history with date_from and date_to" do
+      request = @api.locate_history(18, DateTime.parse("2013-01-27 09:00"), DateTime.parse("2013-01-27 10:00"))
+      results = request.body
+      results.class.should eq(Hash)
+    end
+
+    it "should return true for success" do
+      request = @api.locate_history(18, DateTime.parse("2013-01-27 09:00"), DateTime.parse("2013-01-27 10:00"))
+      request.success.should be_true
+    end
+
 
     it "should parameterize date_from on #paramemterize" do
       CoordsafeApi::Locator.parameterize(DateTime.parse("2013-07-06 9:30")).should eq("07-06-2013%2009:30")

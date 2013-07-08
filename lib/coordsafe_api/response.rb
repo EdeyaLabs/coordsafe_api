@@ -1,17 +1,21 @@
 module CoordsafeApi
   class Response
-    attr_accessor :status, :body
+    attr_accessor :success, :body
 
     def initialize(request)
-      @status, @body = request.headers, request.response.body
+      @status, @body = request.response, request.response.body
     end
 
-    def status
-      #T0D0
+    def success
+      if @status.class == Net::HTTPOK
+        true
+      else
+        false
+      end
     end
 
     def body
-      #T0D0
+      JSON.parse @body
     end
   end
 end

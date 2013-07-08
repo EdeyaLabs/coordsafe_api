@@ -1,4 +1,5 @@
 require 'httparty'
+require 'json'
 
 require "coordsafe_api/version"
 require "coordsafe_api/configuration"

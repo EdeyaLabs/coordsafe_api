@@ -22,8 +22,10 @@ module CoordsafeApi
     def locate_history(locator_id, date_from, date_to=nil)
       if date_to.nil?
         response = self.class.get("#{single_history_endpoint}/#{locator_id}/#{Locator.parameterize(date_from)}?key=#{secret}")
+        Response.new(response)
       else
         response = self.class.get("#{history_endpoint}/#{locator_id}/#{Locator.parameterize(date_from, date_to)}?key=#{secret}")
+        Response.new(response)
       end
     end
 
