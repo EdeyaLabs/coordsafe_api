@@ -9,7 +9,7 @@ Ruby wrapper for the Coordsafe locator API
 Installation
 ------------
 
-Add to your Gemfile `gem 'coordsafe_api`
+Add to your Gemfile `gem 'coordsafe_api'`
 
 Usage
 -----
