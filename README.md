@@ -16,7 +16,7 @@ Usage
 
 Initialize your request. It takes `company_name` and `key` as parameters.
 
-    @api = CoordsafeApi::Locator.new({:company_name => "EdeyaLabs", :key => "test-1234qwer"})
+    @api = CoordsafeApi::Locator.new({:company_name => "EdeyaLabs", :secret => "test-1234qwer"})
 
 Use `locate` to get a list of all locators
 
