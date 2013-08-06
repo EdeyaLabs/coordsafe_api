@@ -4,24 +4,6 @@ describe CoordsafeApi::Locator do
   context "on utilizing the API" do
     before(:each) do
       @api = CoordsafeApi::Locator.new({:company_name => "2", :secret => "test-1234qwer"})
-      <<-DOC
-      stub_request(:get, "http://www.coordsafe.com.sg/CoordSafePortalApp/locators/lc/company/Sypher%20Labs%20Pte.%20Ltd.?key=").to_return(
-        :body => '[ {"location":null,"imeiCode":"353301057336682","gpsLocation":{"time":0,"accuracy":0.0,"altitude":0.0,"bearing":0.0,
-          "distance":0.0,"hasAccuracy":false,"hasAltitude":false,"hasBearing":false,"hasSpeed":false,"initialBearing":0.0,"latitude":1.5296516666666666,
-          "longitude":103.77401,"speed":0.0},"deviceStatus":{"isGpsOn":false,"imei":"","isGsmOn":false,"networkAvailability":0,"ip":"","batteryLeft":0},
-          "create":false,"assignedTo":"Sypher Labs Pte. Ltd.","id":35,"type":"CS","status":null,"madeBy":null,"madeDate":1423065600000,"model":"BBT-01",
-          "label":"PDN399","lastLocationUpdate":1373096366341,"ownerId":"CS","lastStatusUpdate":1369535434914} ]',
-        :headers => { "Content-Type" => 'application/json', "Transfer-Encoding" => 'chunked' })
-      stub_request(:get, "http://www.coordsafe.com.sg/CoordSafePortalApp/locators/lc/location/18/01-27-2013%2009:30?key=").to_return(
-        :body => '[ {"id":209588,"accuracy":0.0,"altitude":0.0,"bearing":164.39999389648438,"distance":0.0,"speed":65.5,"lat":1.3918833333333334,
-        "lng":103.75420666666668,"location_time":1359248454818,"locator_id":18},{"id":209589,"accuracy":0.0,"altitude":0.0,"bearing":165.35000610351562,
-        "distance":0.0,"speed":64.5999984741211,"lat":1.3910783333333332,"lng":103.75441166666666,"location_time":1359248454862,"locator_id":18} ]',
-        :content_type => 'application/json')
-      stub_request(:get, "http://www.coordsafe.com.sg/CoordSafePortalApp/locators/lc/history/18/01-27-2013%2009:00,01-27-2013%2010:00?key=").to_return(
-        :body => ' {"id":209869,"accuracy":0.0,"altitude":0.0,"bearing":178.89999389648438,"distance":0.0,"speed":37.900001525878906,
-        "lat":1.3253249999999999,"lng":103.76431833333332,"location_time":1359250196802,"locator_id":18}',
-        :content_type => 'application/json')
-      DOC
     end
 
     it "should respond with the CoordsafeApi::Response object on #locate" do
