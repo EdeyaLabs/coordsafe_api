@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    coordsafe_api (0.1.0)
+    coordsafe_api (0.1.1)
       httparty
       yajl-ruby
 
@@ -24,7 +24,7 @@ GEM
       multi_xml (>= 0.5.2)
     mime-types (1.23)
     multi_json (1.7.7)
-    multi_xml (0.5.4)
+    multi_xml (0.5.5)
     rake (10.1.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
