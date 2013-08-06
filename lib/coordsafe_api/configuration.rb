@@ -4,9 +4,9 @@ module CoordsafeApi
     VALID_OPTIONS_KEYS    = [:secret, :company_name, :format].freeze
     VALID_CONFIG_KEYS     = VALID_CONNECTION_KEYS + VALID_OPTIONS_KEYS
 
-    DEFAULT_LOCATOR_ENDPOINT        = "http://www.coordsafe.com.sg/CoordSafePortalApp/locators/lc/company"
-    DEFAULT_HISTORY_ENDPOINT        = "http://www.coordsafe.com.sg/CoordSafePortalApp/locators/lc/history"
-    DEFAULT_SINGLE_HISTORY_ENDPOINT = "http://www.coordsafe.com.sg/CoordSafePortalApp/locators/lc/location"
+    DEFAULT_LOCATOR_ENDPOINT        = "http://www.coordsafe.com.sg/geoready/api/locator/company"
+    DEFAULT_HISTORY_ENDPOINT        = "http://www.coordsafe.com.sg/geoready/api/history"
+    DEFAULT_SINGLE_HISTORY_ENDPOINT = "http://www.coordsafe.com.sg/geoready/api/location"
     DEFAULT_METHOD                  = :get
     DEFAULT_USER_AGENT              = "CoordsafeApi Ruby Gem #{CoordsafeApi::VERSION}".freeze
 

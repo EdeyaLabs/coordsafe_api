@@ -3,7 +3,8 @@ require 'spec_helper'
 describe CoordsafeApi::Locator do
   context "on utilizing the API" do
     before(:each) do
-      @api = CoordsafeApi::Locator.new({:company_name => "Sypher Labs Pte. Ltd.", :key => "test-1234qwer"})
+      @api = CoordsafeApi::Locator.new({:company_name => "2", :secret => "test-1234qwer"})
+      <<-DOC
       stub_request(:get, "http://www.coordsafe.com.sg/CoordSafePortalApp/locators/lc/company/Sypher%20Labs%20Pte.%20Ltd.?key=").to_return(
         :body => '[ {"location":null,"imeiCode":"353301057336682","gpsLocation":{"time":0,"accuracy":0.0,"altitude":0.0,"bearing":0.0,
           "distance":0.0,"hasAccuracy":false,"hasAltitude":false,"hasBearing":false,"hasSpeed":false,"initialBearing":0.0,"latitude":1.5296516666666666,
@@ -20,6 +21,7 @@ describe CoordsafeApi::Locator do
         :body => ' {"id":209869,"accuracy":0.0,"altitude":0.0,"bearing":178.89999389648438,"distance":0.0,"speed":37.900001525878906,
         "lat":1.3253249999999999,"lng":103.76431833333332,"location_time":1359250196802,"locator_id":18}',
         :content_type => 'application/json')
+      DOC
     end
 
     it "should respond with the CoordsafeApi::Response object on #locate" do
@@ -49,10 +51,7 @@ describe CoordsafeApi::Locator do
     it "should respond with JSON on #locate_history with date_from" do
       request = @api.locate_history(18, DateTime.parse("2013-01-27 09:30"))
       results = request.body
-      results.class.should eq(Array)
-      results.each do |r|
-        r.class.should eq(Hash)
-      end
+      results.class.should eq(Hash)
     end
 
     it "should return true for success" do
@@ -68,7 +67,10 @@ describe CoordsafeApi::Locator do
     it "should respond with JSON on #locate_history with date_from and date_to" do
       request = @api.locate_history(18, DateTime.parse("2013-01-27 09:00"), DateTime.parse("2013-01-27 10:00"))
       results = request.body
-      results.class.should eq(Hash)
+      results.class.should eq(Array)
+      results.each do |r|
+        r.class.should eq(Hash)
+      end
     end
 
     it "should return true for success" do
